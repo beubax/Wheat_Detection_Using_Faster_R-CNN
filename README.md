@@ -118,7 +118,7 @@ Besides SqueezeNet and GoogLeNet, we also experimented with DenseNet, ResNext an
 
 ## Inference With Psuedo Labeling
 
-###### Inference
+### Inference
 
 The competition guidelines required for us to run our inference notebooks offline. As a result, we could not run F-RCNN with different backbones without downloading the files off the internet during runtime. To solve this problem, here is what we did:
 
@@ -167,11 +167,11 @@ def densenet201(pretrained=False, **kwargs):
 
 Make sure to do this for every model variation defined in the cell.
 
- 4. Turn “Internet” off and run the cell. The cell should run error free!
+ - Turn “Internet” off and run the cell. The cell should run error free!
 
 Note: Make sure to download the right .pth files and add the correct file path to the modified code. Forgetting to remove the “progress” from every single function can spring up errors in the code!
 
-###### Psuedo-Labeling
+### Psuedo-Labeling
 
 Psuedo labelling is a form of semi-supervised learning. We first train a model, as usual, on labelled images. This trained model is then used to predict and create labels for unlabelled images. They are also known as ‘pseudo labelled’ images. These pseudo labelled images are then mixed with already labelled images, and the model is retrained. 
 
