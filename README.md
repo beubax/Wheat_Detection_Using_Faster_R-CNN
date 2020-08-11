@@ -140,13 +140,13 @@ The competition guidelines required for us to run our inference notebooks offlin
 
 ```shell
 if pretrained:
-        _load_state_dict(model, model_urls[arch], progress)
+    _load_state_dict(model, model_urls[arch], progress)
 ```
    To: 
 
 ```shell
 if pretrained:
-        model_urls[arch]
+    model_urls[arch]
 ```
  - Remove “progress” from all the functions and return statements. Example:
 
@@ -154,7 +154,7 @@ From:
 
 ```shell
 def densenet201(pretrained=False, progress=True, **kwargs):
-       return _densenet('densenet201', 32, (6, 12, 48, 32), 64, pretrained, progress,
+    return _densenet('densenet201', 32, (6, 12, 48, 32), 64, pretrained, progress,
                      **kwargs)
 ```
 
