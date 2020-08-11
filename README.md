@@ -1,19 +1,19 @@
 # Implementation of YOLOv3 on 'The Office' Dataset
 
-Online coding competitions have always been a fascinating region of interest we’ve wanted to dive into. Kaggle--being amongst the best sources for machine learning related problems--was the first website we landed upon. A certain ‘Wheat Head Detection’ caught our eyes, and we had to take a second look at it. The successful implementation of the Yolov3 algorithm under our arsenal had left us wanting to tackle other methodologies for object detection. This competition was the perfect opportunity to dip our feet into the pool of coding competitions, as well as learn a lot more in the field of Computer Vision. So, let’s cut the crop and get straight to the implementation – 	
+Online coding competitions have always been a fascinating (region of interest) we have wanted to dive into. Kaggle—being amongst the best sources for machine learning related problems—was the first website we stumbled upon. A certain ‘Wheat Head Detection’ caught our eyes, and we had to take a second look at it. The successful implementation of the Yolov3 algorithm under our arsenal had left us wanting to tackle other methodologies for Object Detection. This competition was the perfect opportunity to dip our feet into the pool of coding competitions, as well as learn a lot more in the field of Computer Vision. So, let’s cut the crop and get straight to the implementation – 	
 
 
 ## Table of Contents
 
 
-- [Why we decided to use faster RCNN](#why-we-decided-to-use-faster-rcnn)
-- [Training of Faster RCNN using Pytorch](#training-of-faster-rcnn-using-pytorch)
-- [Experimenting with different backbones on Faster RCNN](#experimenting-with-different-backbones-on-faster-rcnn)
-- [Inference with Psuedo Labeling](#running-the-inference-notebook)
+- [Why We Decided To Use Faster R-CNN](#why-we-decided-to-use-faster-rcnn)
+- [Training of Faster RCNN Using Pytorch](#training-of-faster-rcnn-using-pytorch)
+- [Experimenting With Different Backbones On Faster R-CNN](#experimenting-with-different-backbones-on-faster-rcnn)
+- [Inference With Psuedo Labeling](#running-the-inference-notebook)
 
 ---
 
-## Why we decided to use faster RCNN
+## Why We Decided To Use Faster R-CNN
 
 The first couple of days was spent researching the different available algorithms for object detection and picking the one best suited for our problem statement. RCNNs aren’t built for speed but rather excel at accuracy. The competition required accurate detection of wheat heads in images, so speed wasn’t of the essence here.  
 
@@ -23,13 +23,13 @@ The algorithm designed for Faster RCNN (F-CNN) went through several revisions be
 
 The ability to detect tiny objects in images was key to detecting wheat heads in the dataset, so Faster RCNN was our go-to model.
 
-## Training of Faster RCNN using Pytorch
+## Training of Faster RCNN Using Pytorch
 
 The dataset was provided by the competition owners and consisted of ~3400 images of wheat crops taken in different locations around the world. They were labelled and coordinates of the bounding boxes were provided in a CSV file. We tried and tested many different implementations of Faster using Keras and Tensorflow, but all of them were either outdated or throwing incomprehensible errors. Pytorch came to the rescue and our code was largely derived from this notebook - 
 
 [Pytorch Faster-R-CNN with ResNet152 backbone](https://www.kaggle.com/maherdeebcv/pytorch-faster-r-cnn-with-resnet152-backbone)
 
-## Experimenting with different backbones on Faster RCNN
+## Experimenting With Different Backbones On Faster R-CNN
 
 One of the advantages of using a model like F-CNN is the flexibility to use different backbones. While F-CNN is said to do a better job in locating small objects compared to models such as YOLOv3, the ability to modify its backbone opens a whirlwind of possibilities. With this in mind, we set out to experiment with every single backbone that managed to run within Kaggle’s free GPU limits.
 
@@ -118,7 +118,7 @@ backbone.out_channels = 192
 
 Besides SqueezeNet and GoogLeNet, we also experimented with DenseNet, ResNext and ran pre-defined backbones VGG-16 and ResNet 152 from the PyTorch library. Overall, implementing ResNext gave us the best accuracy of 66.24%
 
-##Running the inference notebook
+##Inference With Psuedo Labeling
 
 ###### Inference
 
