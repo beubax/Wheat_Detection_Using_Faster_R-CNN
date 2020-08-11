@@ -31,7 +31,7 @@ The dataset was provided by the competition owners and consisted of ~3400 images
 
 One of the advantages of using a model like FRCNN is the flexibility to use different backbones. FRCNN is said to do a better job in locating small objects compared to models such as YOLOv3 and the ability to modify its backbone opens a whirlwind of possibilities. With this in mind, we set out to experiment with every single backbone that managed to run within Kaggle’s free GPU limits!
 
-As mentioned in this [link] (https://www.kaggle.com/c/global-wheat-detection/discussion/150972), to modify the backbone for models that do not store feature extraction as a variable, the following code will have to be used:
+As mentioned in this [link](https://www.kaggle.com/c/global-wheat-detection/discussion/150972), to modify the backbone for models that do not store feature extraction as a variable, the following code will have to be used:
 ```shell
 class NewNet(NewNet):
     def __init__(self, blocks_args=None, global_params=None):
