@@ -118,7 +118,7 @@ backbone.out_channels = 192
 
 Besides SqueezeNet and GoogLeNet, we also experimented with DenseNet, ResNext and ran pre-defined backbones VGG-16 and ResNet 152 from the PyTorch library. Overall, implementing ResNext gave us the best accuracy of 66.24%
 
-##Inference With Psuedo Labeling
+## Inference With Psuedo Labeling
 
 ###### Inference
 
