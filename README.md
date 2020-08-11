@@ -25,9 +25,7 @@ The ability to detect tiny objects in images was key to detecting wheat heads in
 
 ## Training of Faster RCNN Using Pytorch
 
-The dataset was provided by the competition owners and consisted of ~3400 images of wheat crops taken in different locations around the world. They were labelled and coordinates of the bounding boxes were provided in a CSV file. We tried and tested many different implementations of Faster using Keras and Tensorflow, but all of them were either outdated or throwing incomprehensible errors. Pytorch came to the rescue and our code was largely derived from this notebook - 
-
-[Pytorch Faster-R-CNN with ResNet152 backbone](https://www.kaggle.com/maherdeebcv/pytorch-faster-r-cnn-with-resnet152-backbone)
+The dataset was provided by the competition owners and consisted of ~3400 images of wheat crops taken in different locations around the world. They were labelled and coordinates of the bounding boxes were provided in a CSV file. We tried and tested many different implementations of Faster using Keras and Tensorflow, but all of them were either outdated or throwing incomprehensible errors. Pytorch came to the rescue and our code was largely derived from this notebook [Pytorch Faster-R-CNN with ResNet152 backbone](https://www.kaggle.com/maherdeebcv/pytorch-faster-r-cnn-with-resnet152-backbone)
 
 ## Experimenting With Different Backbones On Faster R-CNN
 
@@ -144,13 +142,13 @@ The competition guidelines required for us to run our inference notebooks offlin
 if pretrained:
         _load_state_dict(model, model_urls[arch], progress)
 ```
- To: 
+   To: 
 
 ```shell
 if pretrained:
         model_urls[arch]
 ```
- 3. Remove “progress” from all the functions and return statements. Example:
+ - Remove “progress” from all the functions and return statements. Example:
 
 From:
 
@@ -181,6 +179,4 @@ Psuedo labelling is a form of semi-supervised learning. We first train a model, 
 
 This article from [Analytics Vidhya](https://www.analyticsvidhya.com/blog/2017/09/pseudo-labelling-semi-supervised-learning-technique/) does a good job at explaining it. 
 
-The inference code was largely derived from this notebook - 
-
-[FasterRCNN Pseudo Labeling](https://www.kaggle.com/nvnnghia/fasterrcnn-pseudo-labeling)
+The inference code was largely derived from this notebook [FasterRCNN Pseudo Labeling](https://www.kaggle.com/nvnnghia/fasterrcnn-pseudo-labeling)
