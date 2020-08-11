@@ -1,6 +1,6 @@
 # Implementing Backbones Not Defined in Pytorch's Faster R-CNN Library
 
-Online coding competitions have always been a fascinating _region of interest_ we have wanted to dive into. Kaggle—being amongst the best sources for machine learning related problems—was the first website we stumbled upon. A certain ‘Wheat Head Detection’ caught our eyes, and we had to take a second look at it. The successful implementation of the Yolov3 algorithm under our arsenal had left us wanting to tackle other methodologies for Object Detection. This competition was the perfect opportunity to dip our feet into the pool of coding competitions, as well as learn a lot more in the field of Computer Vision. So, let’s cut the _crop_ and get straight to the implementation. 	
+Online coding competitions have always been a fascinating _region of interest_ we have wanted to dive into. Kaggle—being amongst the best sources for machine learning related problems—was the first website we stumbled upon. A certain ‘Wheat Head Detection’ caught our eyes, and we had to take a second look at it. The successful implementation of the YOLOv3 algorithm under our arsenal had left us wanting to tackle other methodologies for Object Detection. This competition was the perfect opportunity to dip our feet into the pool of competitive programming, as well expand our understnading of Computer Vision. So, let’s cut the _crop_ and get straight to the implementation. 	
 
 
 ## Table of Contents
@@ -15,23 +15,23 @@ Online coding competitions have always been a fascinating _region of interest_ w
 
 ## Why We Decided To Use Faster R-CNN
 
-The first couple of days was spent researching the different available algorithms for object detection and picking the one best suited for our problem statement. RCNNs aren’t built for speed but rather excel at accuracy. The competition required accurate detection of wheat heads in images, so speed wasn’t of the essence here.  
+The first couple of days was spent researching the different available algorithms for object detection and picking the one best suited for our problem statement. R-CNNs aren’t built for speed but rather excel at accuracy. The competition required accurate detection of wheat heads in images, so speed wasn’t of the essence here.  
 
-The algorithm designed for Faster RCNN (F-CNN) went through several revisions before it became the model it is today. From the inception of the first model—the RCNN network—that proposed the idea of region-based localization through the Selective Search algorithm to the development of the Fast RCNN model that improved the speed and accuracy of the RCNN network, the Faster RCNN model is the finely tuned network of its predecessors. The model uses a Region Proposal Network to improve on the Selective Search algorithm among several other modifications.
+The algorithm designed for Faster R-CNN (FRCNN) went through several revisions before it became the model it is today. From the inception of the first model—the R-CNN network—that proposed the idea of region-based localization through the Selective Search algorithm to the development of the Fast R-CNN model that improved the speed and accuracy of the R-CNN network, the Faster R-CNN model is the finely tuned network of its predecessors. The model uses a Region Proposal Network to improve on the Selective Search algorithm among several other modifications.
 
-[This article]( https://tryolabs.com/blog/2018/01/18/faster-r-cnn-down-the-rabbit-hole-of-modern-object-detection/) provides a very detailed explanation of the exact working of the algorithm.
+[This article]( https://tryolabs.com/blog/2018/01/18/faster-r-cnn-down-the-rabbit-hole-of-modern-object-detection/) provides an excellent explanation of the exact working of the algorithm.
 
-The ability to detect tiny objects in images was key to detecting wheat heads in the dataset, so Faster RCNN was our go-to model.
+The ability to detect tiny objects in images was key to detecting wheat heads in the dataset, so Faster R-CNN was our go-to model.
 
 ## Training of Faster R-CNN Using Pytorch
 
-The dataset was provided by the competition owners and consisted of ~3400 images of wheat crops taken in different locations around the world. They were labelled and coordinates of the bounding boxes were provided in a CSV file. We tried and tested many different implementations of Faster using Keras and Tensorflow, but all of them were either outdated or throwing incomprehensible errors. Pytorch came to the rescue and our code was largely derived from this notebook [Pytorch Faster-R-CNN with ResNet152 backbone](https://www.kaggle.com/maherdeebcv/pytorch-faster-r-cnn-with-resnet152-backbone)
+The dataset was provided by the competition owners and consisted of ~3400 images of wheat crops taken in different locations around the world. They were labelled and coordinates of the bounding boxes were provided in a CSV file. We tried and tested many different implementations of FRCNN using Keras and Tensorflow, but all of them were either outdated or throwing incomprehensible errors. Pytorch came to the rescue and our code was largely derived from this notebook [Pytorch Faster-R-CNN with ResNet152 backbone](https://www.kaggle.com/maherdeebcv/pytorch-faster-r-cnn-with-resnet152-backbone)
 
 ## Experimenting With Different Backbones On Faster R-CNN
 
-One of the advantages of using a model like F-CNN is the flexibility to use different backbones. While F-CNN is said to do a better job in locating small objects compared to models such as YOLOv3, the ability to modify its backbone opens a whirlwind of possibilities. With this in mind, we set out to experiment with every single backbone that managed to run within Kaggle’s free GPU limits.
+One of the advantages of using a model like FRCNN is the flexibility to use different backbones. FRCNN is said to do a better job in locating small objects compared to models such as YOLOv3 and the ability to modify its backbone opens a whirlwind of possibilities. With this in mind, we set out to experiment with every single backbone that managed to run within Kaggle’s free GPU limits!
 
-As mentioned in the post, to modify the backbone for models that do not store feature extraction as a variable, the following code will have to be used:
+As mentioned in this [link] (https://www.kaggle.com/c/global-wheat-detection/discussion/150972), to modify the backbone for models that do not store feature extraction as a variable, the following code will have to be used:
 ```shell
 class NewNet(NewNet):
     def __init__(self, blocks_args=None, global_params=None):
@@ -48,7 +48,7 @@ To call the model use the following line of code:
 model = FasterRCNN(backbone, num_classes=2, ...extra params...)
 ```
 
-To fill the classes with the required code, you will have to go through the code for each backbone. However, the whole process confused us for quite a bit before we got fully functional models up and running. To make it easier, here’s how we worked on the code for SqueezeNet.
+To fill the classes with the required code, you will have to go through the code for each backbone. However, the whole process confused us for quite a bit before we got fully functional models up and running. To make it easier to understand, here’s how we worked on the code for SqueezeNet.
 
 - Go to squeezenet.py that can be found in vision/torchvision/models/ on GitHub
 - Look for the class SqueezeNet()
@@ -120,9 +120,9 @@ Besides SqueezeNet and GoogLeNet, we also experimented with DenseNet, ResNext an
 
 ### Inference
 
-The competition guidelines required for us to run our inference notebooks offline. As a result, we could not run F-RCNN with different backbones without downloading the files off the internet during runtime. To solve this problem, here is what we did:
+The competition guidelines required for us to run our inference notebooks offline. As a result, we could not run FRCNN with different backbones without downloading the files off the internet during runtime. To solve this problem, here is what we did:
 
-- Copy the structure of the backbone you want to use from the PyTorch GitHub onto a new cell in Kaggle. This can be accessed in the model.py file found in vision/torchvision/models/. Here the model.py file could be any of the models in the models folder directory--inception.py, squeezenet.py, etc.
+- Copy the structure of the backbone you want to use from the PyTorch GitHub onto a new cell in Kaggle. This can be accessed in the model.py file found in vision/torchvision/models/. Here the model.py file could be any of the models in the models folder directory—inception.py, squeezenet.py, etc.
 
 ![](https://github.com/The-DL-Nerds/Global_Weed_Detection/blob/master/README_Img/4.PNG)
 
@@ -130,7 +130,7 @@ The competition guidelines required for us to run our inference notebooks offlin
 
 ![](https://github.com/The-DL-Nerds/Global_Weed_Detection/blob/master/README_Img/5.PNG)
 
-- Next, change the following lines of code in the cell that you pasted the CNN structure
+- Next, change the following lines of code in the cell that you pasted the CNN structure:
 
   - Paste the file path in place of the url that you downloaded
 
