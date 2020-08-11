@@ -52,16 +52,16 @@ model = FasterRCNN(backbone, num_classes=2, ...extra params...)
 
 To fill the classes with the required code, you will have to go through the code for each backbone. However, the whole process confused us for quite a bit before we got fully functional models up and running. To make it easier, here’s how we worked on the code for SqueezeNet.
 
--Go to squeezenet.py that can be found in vision/torchvision/models/ on GitHub
--Look for the class SqueezeNet()
+- Go to squeezenet.py that can be found in vision/torchvision/models/ on GitHub
+- Look for the class SqueezeNet()
 
 ![](https://github.com/The-DL-Nerds/Global_Weed_Detection/blob/master/README_Img/2.PNG)
 
--From the function, look for the code that mentions all the different layers. In the case of SqueezeNet, the layers are all defined in self.features(). Also, the number of output channels in the model is 512 as mentioned in the notebook
+- From the function, look for the code that mentions all the different layers. In the case of SqueezeNet, the layers are all defined in self.features(). Also, the number of output channels in the model is 512 as mentioned in the notebook
 
-![](https://github.com/The-DL-Nerds/Global_Weed_Detection/blob/master/README_Img/3.png)
+![](https://github.com/The-DL-Nerds/Global_Weed_Detection/blob/master/README_Img/3.PNG)
 
--Add the following lines of code to the template mentioned above:
+- Add the following lines of code to the template mentioned above:
 
 ```shell
 class SqueezeFeatures(nn.Module):
@@ -124,21 +124,21 @@ Besides SqueezeNet and GoogLeNet, we also experimented with DenseNet, ResNext an
 
 The competition guidelines required for us to run our inference notebooks offline. As a result, we could not run F-RCNN with different backbones without downloading the files off the internet during runtime. To solve this problem, here is what we did:
 
--Copy the structure of the backbone you want to use from the PyTorch GitHub onto a new cell in Kaggle. This can be accessed in the model.py file found in vision/torchvision/models/. Here the model.py file could be any of the models in the models folder directory--inception.py, squeezenet.py, etc.
+- Copy the structure of the backbone you want to use from the PyTorch GitHub onto a new cell in Kaggle. This can be accessed in the model.py file found in vision/torchvision/models/. Here the model.py file could be any of the models in the models folder directory--inception.py, squeezenet.py, etc.
 
-![](https://github.com/The-DL-Nerds/Global_Weed_Detection/blob/master/README_Img/4.png)
+![](https://github.com/The-DL-Nerds/Global_Weed_Detection/blob/master/README_Img/4.PNG)
 
--Download the required .pth file from the models_urls dictionary by pasting the file link on to the web browser. Add this file to your personal Kaggle dataset.
+- Download the required .pth file from the models_urls dictionary by pasting the file link on to the web browser. Add this file to your personal Kaggle dataset.
 
-![](https://github.com/The-DL-Nerds/Global_Weed_Detection/blob/master/README_Img/5.png)
+![](https://github.com/The-DL-Nerds/Global_Weed_Detection/blob/master/README_Img/5.PNG)
 
--Next, change the following lines of code in the cell that you pasted the CNN structure
+- Next, change the following lines of code in the cell that you pasted the CNN structure
 
- 1. Paste the file path in place of the url that you downloaded
+  - Paste the file path in place of the url that you downloaded
 
-![](https://github.com/The-DL-Nerds/Global_Weed_Detection/blob/master/README_Img/6.png)
+![](https://github.com/The-DL-Nerds/Global_Weed_Detection/blob/master/README_Img/6.PNG)
 
- 2. Change: 
+  - Change: 
 
 ```shell
 if pretrained:
@@ -177,7 +177,7 @@ Note: Make sure to download the right .pth files and add the correct file path t
 
 Psuedo labelling is a form of semi-supervised learning. We first train a model, as usual, on labelled images. This trained model is then used to predict and create labels for unlabelled images. They are also known as ‘pseudo labelled’ images. These pseudo labelled images are then mixed with already labelled images, and the model is retrained. 
 
-![](https://github.com/The-DL-Nerds/Global_Weed_Detection/blob/master/README_Img/1.png)
+![](https://github.com/The-DL-Nerds/Global_Weed_Detection/blob/master/README_Img/1.PNG)
 
 This article from [Analytics Vidhya](https://www.analyticsvidhya.com/blog/2017/09/pseudo-labelling-semi-supervised-learning-technique/) does a good job at explaining it. 
 
