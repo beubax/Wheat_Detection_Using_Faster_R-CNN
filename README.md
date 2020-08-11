@@ -55,11 +55,11 @@ To fill the classes with the required code, you will have to go through the code
 -Go to squeezenet.py that can be found in vision/torchvision/models/ on GitHub
 -Look for the class SqueezeNet()
 
-![](/README_Img/2.png)
+![](https://github.com/The-DL-Nerds/Global_Weed_Detection/blob/master/README_Img/2.PNG)
 
 -From the function, look for the code that mentions all the different layers. In the case of SqueezeNet, the layers are all defined in self.features(). Also, the number of output channels in the model is 512 as mentioned in the notebook
 
-![](/README_Img/3.png)
+![](https://github.com/The-DL-Nerds/Global_Weed_Detection/blob/master/README_Img/3.png)
 
 -Add the following lines of code to the template mentioned above:
 
@@ -126,17 +126,17 @@ The competition guidelines required for us to run our inference notebooks offlin
 
 -Copy the structure of the backbone you want to use from the PyTorch GitHub onto a new cell in Kaggle. This can be accessed in the model.py file found in vision/torchvision/models/. Here the model.py file could be any of the models in the models folder directory--inception.py, squeezenet.py, etc.
 
-![](/README_Img/4.png)
+![](https://github.com/The-DL-Nerds/Global_Weed_Detection/blob/master/README_Img/4.png)
 
 -Download the required .pth file from the models_urls dictionary by pasting the file link on to the web browser. Add this file to your personal Kaggle dataset.
 
-![](/README_Img/5.png)
+![](https://github.com/The-DL-Nerds/Global_Weed_Detection/blob/master/README_Img/5.png)
 
 -Next, change the following lines of code in the cell that you pasted the CNN structure
 
  1. Paste the file path in place of the url that you downloaded
 
-![](/README_Img/6.png)
+![](https://github.com/The-DL-Nerds/Global_Weed_Detection/blob/master/README_Img/6.png)
 
  2. Change: 
 
@@ -177,7 +177,7 @@ Note: Make sure to download the right .pth files and add the correct file path t
 
 Psuedo labelling is a form of semi-supervised learning. We first train a model, as usual, on labelled images. This trained model is then used to predict and create labels for unlabelled images. They are also known as ‘pseudo labelled’ images. These pseudo labelled images are then mixed with already labelled images, and the model is retrained. 
 
-![](/README_Img/1.png)
+![](https://github.com/The-DL-Nerds/Global_Weed_Detection/blob/master/README_Img/1.png)
 
 This article from [Analytics Vidhya](https://www.analyticsvidhya.com/blog/2017/09/pseudo-labelling-semi-supervised-learning-technique/) does a good job at explaining it. 
 
