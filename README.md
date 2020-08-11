@@ -1,15 +1,15 @@
-# Implementation of YOLOv3 on 'The Office' Dataset
+# Implementing Backbones Not Pre-Defined in Pytorch's Faster R-CNN Library
 
-Online coding competitions have always been a fascinating (region of interest) we have wanted to dive into. Kaggle—being amongst the best sources for machine learning related problems—was the first website we stumbled upon. A certain ‘Wheat Head Detection’ caught our eyes, and we had to take a second look at it. The successful implementation of the Yolov3 algorithm under our arsenal had left us wanting to tackle other methodologies for Object Detection. This competition was the perfect opportunity to dip our feet into the pool of coding competitions, as well as learn a lot more in the field of Computer Vision. So, let’s cut the crop and get straight to the implementation – 	
+Online coding competitions have always been a fascinating _region of interest_ we have wanted to dive into. Kaggle—being amongst the best sources for machine learning related problems—was the first website we stumbled upon. A certain ‘Wheat Head Detection’ caught our eyes, and we had to take a second look at it. The successful implementation of the Yolov3 algorithm under our arsenal had left us wanting to tackle other methodologies for Object Detection. This competition was the perfect opportunity to dip our feet into the pool of coding competitions, as well as learn a lot more in the field of Computer Vision. So, let’s cut the _crop_ and get straight to the implementation. 	
 
 
 ## Table of Contents
 
 
-- [Why We Decided To Use Faster R-CNN](#why-we-decided-to-use-faster-rcnn)
-- [Training of Faster RCNN Using Pytorch](#training-of-faster-rcnn-using-pytorch)
-- [Experimenting With Different Backbones On Faster R-CNN](#experimenting-with-different-backbones-on-faster-rcnn)
-- [Inference With Psuedo Labeling](#running-the-inference-notebook)
+- [Why We Decided To Use Faster R-CNN](#why-we-decided-to-use-faster-r-cnn)
+- [Training of Faster R-CNN Using Pytorch](#training-of-faster-r-cnn-using-pytorch)
+- [Experimenting With Different Backbones On Faster R-CNN](#experimenting-with-different-backbones-on-faster-r-cnn)
+- [Inference With Pseudo Labeling](#inference-with-pseudo-labeling)
 
 ---
 
@@ -23,7 +23,7 @@ The algorithm designed for Faster RCNN (F-CNN) went through several revisions be
 
 The ability to detect tiny objects in images was key to detecting wheat heads in the dataset, so Faster RCNN was our go-to model.
 
-## Training of Faster RCNN Using Pytorch
+## Training of Faster R-CNN Using Pytorch
 
 The dataset was provided by the competition owners and consisted of ~3400 images of wheat crops taken in different locations around the world. They were labelled and coordinates of the bounding boxes were provided in a CSV file. We tried and tested many different implementations of Faster using Keras and Tensorflow, but all of them were either outdated or throwing incomprehensible errors. Pytorch came to the rescue and our code was largely derived from this notebook [Pytorch Faster-R-CNN with ResNet152 backbone](https://www.kaggle.com/maherdeebcv/pytorch-faster-r-cnn-with-resnet152-backbone)
 
@@ -116,7 +116,7 @@ backbone.out_channels = 192
 
 Besides SqueezeNet and GoogLeNet, we also experimented with DenseNet, ResNext and ran pre-defined backbones VGG-16 and ResNet 152 from the PyTorch library. Overall, implementing ResNext gave us the best accuracy of 66.24%
 
-## Inference With Psuedo Labeling
+## Inference With Pseudo Labeling
 
 ### Inference
 
