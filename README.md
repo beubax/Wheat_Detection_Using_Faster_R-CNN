@@ -1,6 +1,6 @@
 # Implementing Backbones Not Defined in Pytorch's Faster R-CNN Library
 
-Online coding competitions have always been a fascinating _region of interest_ we have wanted to dive into. Kaggle—being amongst the best sources for machine learning related problems—was the first website we stumbled upon. A certain ‘Wheat Head Detection’ caught our eyes, and we had to take a second look at it. The successful implementation of the YOLOv3 algorithm under our arsenal had left us wanting to tackle other methodologies for Object Detection. This competition was the perfect opportunity to dip our feet into the pool of competitive programming, as well expand our understnading of Computer Vision. So, let’s cut the _crop_ and get straight to the implementation. 	
+Online coding competitions have always been a fascinating _region of interest_ we have wanted to dive into. Kaggle—being amongst the best sources for machine learning related problems—was the first website we stumbled upon. A certain ‘Wheat Head Detection’ caught our eyes, and we had to take a second look at it. The successful implementation of the YOLOv3 algorithm under our arsenal had left us wanting to tackle other methodologies for Object Detection. This competition was the perfect opportunity to dip our feet into the pool of competitive programming, as well expand our understanding of Computer Vision. So, let’s cut the _crop_ and get straight to the implementation. 	
 
 
 ## Table of Contents
